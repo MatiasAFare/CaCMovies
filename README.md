@@ -1,2 +1,2 @@
 # CaCMovies
-Pagina de películas creada a modo de ejemplo
+Codo a Codo - Full stack developer Jr. JAVA. First Project.
