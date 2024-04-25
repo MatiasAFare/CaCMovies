@@ -1,0 +1,242 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', sans-serif;
+}
+
+body {
+    background-color: #281d2b;
+    color: white;
+}
+
+header {
+    background-color: #b13e51;
+    color: #ffffff;
+    height: 10vh;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    .navegacion {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 40px;
+        margin-right: 40px;
+        padding: 1.5rem 0;
+
+        .anclaLogo {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .listaNav {
+            list-style: none;
+            display: flex;
+            align-items: center;
+
+            .listaItem {
+                margin-right: 20px;
+
+                .linkNav {
+                    color: #ffffff;
+                    text-decoration: none;
+                    font-weight: 700;
+                    font-size: 1.1rem;
+                    padding: 0.5rem 1rem;
+
+                    /* Efecto de boton cuando se posicione el mouse */
+                    transition: transform 0.3s, box-shadow 0.6s;
+
+                    &:hover {
+                        transform: scale(0.95);
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+                        border-radius: 5px;
+                    }
+                }
+
+                .linkNav.iniciarSesion {
+                    background-color: #281d2b;
+                    color: white;
+                    border-radius: 5px;
+
+                    transition: transform 0.3s, box-shadow 0.6s;
+
+                    &:hover {
+                        background-color: #b13e51;
+                        transform: scale(0.95);
+                        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+
+                    }
+                }
+
+            }
+        }
+    }
+
+}
+
+/* Responsive mobile y tablet */
+@media (max-width: 768px) {
+    .header {
+        height: initial;
+
+        .navegacion {
+            margin-left: 10px;
+            margin-right: 10px;
+            row-gap: 20px;
+            flex-direction: column;
+
+            .anclaLogo {
+                font-weight: 700;
+                font-size: 1.2rem;
+            }
+
+            .listaNav {
+                padding: initial;
+
+                .listaItem {
+                    .linkNav {
+                        font-weight: 400;
+                        margin-right: initial;
+                        font-size: 1rem;
+                        padding: 0.2rem;
+                    }
+                }
+
+            }
+        }
+    }
+}
+
+
+/* Seccion principal - Main */
+.main {
+    .sectionPrincipal {
+        color: #ffffff;
+        background: linear-gradient(to right top, #0000008a, #0000008a), url(images/banner-bg.jpg);
+        background-position: center;
+        background-size: cover;
+        height: 90vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .tituloPrincipal {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .subtituloPrincipal {
+            font-size: 2rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+
+        }
+
+        .botonRegistrarse {
+            background-color: #b13e51;
+            color: #ffffff;
+            padding: 1rem 2rem;
+            border-radius: 6px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+
+            transition: transform 0.3s, box-shadow 0.6s;
+
+            &:hover {
+                transform: scale(0.95);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+
+            }
+
+        }
+    }
+    .buscadorPrincipal{
+        background-color: #281d2b;
+        height: 50vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .tituloSection{
+            font-size: 2.5rem ;
+            font-weight:700 ;
+            margin-bottom: 1rem;
+        }
+
+        .buscadorPeliculas{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+
+            .inputBuscador{
+                height: 50px ;
+                width: 500px;
+                margin: 20px 10px;
+                border: 2px solid white;
+                padding: 0px 20px;
+                border-radius: 25px;
+                font-size: 1.2rem;
+                outline: none;
+                
+            }
+            .botonBuscador{
+                background-color: #b13e51;
+                display: inline-block;
+                height: 50px;
+                margin: 20px 10px;
+                padding: 0 20px;
+                border-radius:25px;
+                font-size:1.2rem ;
+                font-weight: 700;
+                border: 2px solid white;
+                text-align: center;
+
+
+                transition: transform 0.3s, box-shadow 0.6s;
+                &:hover{
+                    transform: scale(0.95);
+                box-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+                }
+
+            }
+        }
+    }
+    .sectionTendencias{
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 10px;
+
+        .tituloTendencias{
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            margin-block-start: 1em;
+            margin-block-end: 1em;
+            margin-inline-start: 0px;
+            margin-inline-end: 0px;
+            unicode-bidi: isolate;
+        }
+
+        .boxPeliculas{
+
+
+            .linkPelicula{
+                
+            }
+
+        }
+    }
+}
