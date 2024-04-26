@@ -5,6 +5,15 @@
     font-family: 'Nunito', sans-serif;
 }
 
+@keyframes shake {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(5px, 5px) rotate(5deg); }
+    50% { transform: translate(0, 0) rotate(0eg); }
+    75% { transform: translate(-5px, 5px) rotate(-5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+
 body {
     background-color: #281d2b;
     color: white;
@@ -31,6 +40,10 @@ header {
             color: #ffffff;
             font-weight: 700;
             font-size: 1.2rem;
+
+                &:hover{
+                    animation: shake 0.25s infinite;
+            }
         }
 
         .listaNav {
@@ -212,12 +225,25 @@ header {
             }
         }
     }
+    
     .sectionTendencias{
     width: 80%;
     margin: 0 auto;
     text-align: center;
+    justify-content: center;
     margin-top: 10px;
+    border-top: 10px #b13e51;
 
+        .hr{
+            color: #b13e51 ;
+            display: block;
+            height: 15px;
+            width: 50%;
+            align-self: center;
+            border: 0;
+            box-shadow: 0 1px 5px 1px purple;
+    }
+        
         .tituloTendencias{
             display: block;
             font-size: 2.5rem;
@@ -231,12 +257,89 @@ header {
         }
 
         .boxPeliculas{
-
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            flex-wrap: wrap;
+            height: auto;
+            width: 80%;
+            gap:60px;
+            padding: 10px;
 
             .linkPelicula{
+                display: flex;
+                justify-content: center;
+                width:200px;
+                height: 300px;
+                position: relative;
+                overflow: hidden;
+                border-radius: 10px;
+                transition: all .3s;
+
+               
+
+                    .tituloPeli{
+                        display: flex;
+                        position: absolute;
+                        top:0;
+                        left:0;
+                        width: 100%;
+                        height: 100%;
+                        background: rgba(0, 0, 0, 0.3);
+                        justify-content: center;
+                        align-items: center;
+                        color: #ffffff;
+                        opacity: 0;
+                        transition: .3s ease;
+                        font-size: 25px ;
+                        font-weight: 900;
+                        text-shadow: 7px 7px 7px rgba(235, 20, 59, 0.6);
+
+                       
+                    
+                        
+                        
+                        
+                    }
+                
+                
+
+                    .imagenPelicula{
+                        width: 100%;
+                        height: 100%;
+                        display: block;
+                        object-fit: cover;
+                        object-position: center center;
+                        box-shadow: 0 60px 60px;
+
+                        
+                        }
+
+                        &:hover {
+                            transform: perspective(250px) rotateX(10deg)
+                          }
+                          &:hover::before{
+                            content: '';
+                            position: absolute;
+                            bottom: 0;
+                            height: 100%;
+                            width: 100%;
+                            background-image: linear-gradient(to bottom, transparent 50%, rgba(0, 0, 0, 0.5) 50%, rgba(0,0,0) 95%);
+                            opacity: 0;
+                            transition: all .3s ease;
+                          }
+                          &:hover .tituloPeli{
+                            opacity: 1;
+                            
+                          }
+                         
+                        
+
+
+                    }
                 
             }
 
         }
     }
-}
