@@ -5,6 +5,27 @@
     font-family: 'Nunito', sans-serif;
 }
 
+@keyframes shake {
+    0% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    25% {
+        transform: translate(5px, 5px) rotate(5deg);
+    }
+
+    50% {
+        transform: translate(0, 0) rotate(0eg);
+    }
+
+    75% {
+        transform: translate(-5px, 5px) rotate(-5deg);
+    }
+
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+}
 body {
     background-color: #181419;
     color: white;
@@ -14,7 +35,8 @@ body {
 
 .bodyRegistrarse {
     height: 100vh;
-    background: linear-gradient(to right top, #24242473, #24242473), url("images/bg-register.jpg");
+    background: linear-gradient(to right top, #24242473, #24242473);
+    background-image:  url("images/bg-register.jpg");
     background-size: cover;
     background-position: center;
 
@@ -28,10 +50,13 @@ body {
             color: #ffffff;
             font-weight: 700;
             font-size: 1.2rem;
-
+            background-color: rgb(181, 37, 37);
+            border-radius: 50%;
+            box-shadow: 4px 4px 4px 4px rgba(251, 78, 78, 0.41), -1em 0 .4em rgb(175, 66, 56);
+            
             /*animacion hover*/
-            &:hover {
-                animation: tilt-n-move-shaking 0.25s infinite;
+            .anclaLogo:hover {
+                animation: shake 0.25s infinite;
             }
         }
     }
