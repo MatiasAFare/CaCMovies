@@ -14,7 +14,7 @@ body {
 
 .bodyRegistrarse {
     height: 100vh;
-    background: linear-gradient(to right top, #24242473, #24242473), url("/images/bg-register.jpg");
+    background: linear-gradient(to right top, #24242473, #24242473), url("images/bg-register.jpg");
     background-size: cover;
     background-position: center;
 
