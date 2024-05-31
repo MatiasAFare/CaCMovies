@@ -423,21 +423,35 @@ header {
 
     }
 }
+
 .botones {
     display: flex;
     justify-content: center;
     margin-top: 20px;
+    margin-bottom: 20px;
 }
-.boton {
+
+.anterior,
+.siguiente {
     margin: 10px 10px;
     padding: 10px 30px;
-    background-color:#df3e59;
+    background-color: #df3e59;
     color: white;
     border: none;
     cursor: pointer;
     border-radius: 5px;
     font-size: 1.2rem;
     font-weight: 700;
+    transition:all .5s ease-in-out;
+
+
+    &:hover {
+        border:3px solid rgb(0, 0, 0);
+        box-shadow: 10px 10px 5px 5px;
+        font-size:30px;
+        font-family:'Lucida Sans';
+        color:rgb(0, 0, 0)
+    }
 }
 
 /* armado de slider*/
@@ -448,6 +462,7 @@ header {
     margin: 0 auto;
     overflow-x: hidden;
 }
+
 .slider-wrapper::-webkit-scrollbar {
     display: none;
 }
@@ -463,6 +478,7 @@ header {
     overflow: hidden;
     overflow-x: hidden;
 }
+
 .slider::-webkit-scrollbar {
     display: none;
 }

@@ -1,5 +1,6 @@
 //Se ejecuta cuando el DOM se carga completamente
 document.addEventListener('DOMContentLoaded', () => {
+    console.log('El DOM ha sido completamente cargado');
 
 
     const formulario = document.querySelector('form');
@@ -116,19 +117,19 @@ document.addEventListener('DOMContentLoaded', () => {
             console.log("El formulario es valido...")
         }
     })
-})
+
 
 
 //------------------------API-----------------------
 
 const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MWU2ZTY4ODE2NDU1MjcyOTk1YWQ1ODFkYjAzZTQwYyIsInN1YiI6IjY2NTljYjRmNzY2NmZiNmYzYjZjNGQ0ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n-xEtEmCv-lE9q6QsJnUVvAFBuxqWl6PibYmJEMbGkg';
 
-const API_URL = 'https://api.themoviedb.orb/3';
+const API_URL = 'https://api.themoviedb.org/3';
 
 let currentPage = 1;
 
 function llamarAPI(page) {
-    fetch(`{$API_URL}/movie/popular?page=${page}`, {
+    fetch(`${API_URL}/movie/popular?page=${page}`, {
         headers: {
             Authorization: `Bearer ${API_KEY}`,
         },
@@ -139,7 +140,7 @@ function llamarAPI(page) {
 
 function dibujarDatos(json) {
     const filas = json.results.map(obj => Pelicula(obj));
-    document.querySelector('.sectionTendencias .boxPeliculas').innerHTML =
+    document.querySelector('.boxPeliculas').innerHTML =
         filas.join('');
 }
 
@@ -148,7 +149,7 @@ function dibujarDatos(json) {
 function Pelicula(obj) {
     return `
         <div class="linkPelicula">
-        <a href="#"><img src="https://image.tmdb.org/t/p/w500/${obj.poster_path}" alt="${obj.title}" loading="lazy"></a>
+        <a href="#"><img class="linkPelicula" src="https://image.tmdb.org/t/p/w500/${obj.poster_path}" alt="${obj.title}" loading="lazy"></a>
             <div class="tituloPeli">
             <p>${obj.title}</p>
             </div>
@@ -171,8 +172,10 @@ function cargarPaginaAnterior() {
 }
 
 // // Agregar event listeners a los botones
-document.querySelector('.boton anterior').addEventListener('click', cargarPaginaAnterior);
-document.querySelector('.boton siguiente').addEventListener('click', cargarPaginaSiguiente);
+document.querySelector('.anterior').addEventListener('click', cargarPaginaAnterior);
+document.querySelector('.siguiente').addEventListener('click', cargarPaginaSiguiente);
 
 // // Llamar a la función para obtener y dibujar los datos iniciales
 llamarAPI(currentPage);
+
+});
