@@ -117,3 +117,62 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     })
 })
+
+
+//------------------------API-----------------------
+
+const API_KEY = 'eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI0MWU2ZTY4ODE2NDU1MjcyOTk1YWQ1ODFkYjAzZTQwYyIsInN1YiI6IjY2NTljYjRmNzY2NmZiNmYzYjZjNGQ0ZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n-xEtEmCv-lE9q6QsJnUVvAFBuxqWl6PibYmJEMbGkg';
+
+const API_URL = 'https://api.themoviedb.orb/3';
+
+let currentPage = 1;
+
+function llamarAPI(page) {
+    fetch(`{$API_URL}/movie/popular?page=${page}`, {
+        headers: {
+            Authorization: `Bearer ${API_KEY}`,
+        },
+    })
+        .then(response => response.json())
+        .then(data => dibujarDatos(data));
+}
+
+function dibujarDatos(json) {
+    const filas = json.results.map(obj => Pelicula(obj));
+    document.querySelector('.sectionTendencias .boxPeliculas').innerHTML =
+        filas.join('');
+}
+
+
+
+function Pelicula(obj) {
+    return `
+        <div class="linkPelicula">
+        <a href="#"><img src="https://image.tmdb.org/t/p/w500/${obj.poster_path}" alt="${obj.title}" loading="lazy"></a>
+            <div class="tituloPeli">
+            <p>${obj.title}</p>
+            </div>
+        </div>
+    `;
+}
+
+//funcion para cargar pagina siguiente
+
+function cargarPaginaSiguiente() {
+    currentPage++;
+    llamarAPI(currentPage);
+}
+
+function cargarPaginaAnterior() {
+    if (currentPage > 1) {
+        currentPage--;
+        llamarAPI(currentPage);
+    }
+}
+
+// // Agregar event listeners a los botones
+document.querySelector('.boton anterior').addEventListener('click', cargarPaginaAnterior);
+document.querySelector('.boton siguiente').addEventListener('click', cargarPaginaSiguiente);
+
+// // Llamar a la función para obtener y dibujar los datos iniciales
+llamarAPI(currentPage);

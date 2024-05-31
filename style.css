@@ -423,6 +423,22 @@ header {
 
     }
 }
+.botones {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+.boton {
+    margin: 10px 10px;
+    padding: 10px 30px;
+    background-color:#df3e59;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
 
 /* armado de slider*/
 
@@ -430,8 +446,10 @@ header {
     position: relative;
     max-width: 20rem;
     margin: 0 auto;
-
-
+    overflow-x: hidden;
+}
+.slider-wrapper::-webkit-scrollbar {
+    display: none;
 }
 
 .slider {
@@ -443,6 +461,10 @@ header {
     box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0%, 0.25);
     border-radius: 1.5rem;
     overflow: hidden;
+    overflow-x: hidden;
+}
+.slider::-webkit-scrollbar {
+    display: none;
 }
 
 .slider img {
